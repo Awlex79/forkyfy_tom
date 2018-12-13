@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>style.md</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../doc-style.css" />
+  <script src="../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../", thisFile = "doc/style.md", defaultSidebar = true;
+  </script>
+  <script src="../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+      <div class="heading h1">
+        <a href="#coding%20style">Coding style</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="docs markdown">
+<div class="pilwrap" id="coding%20style">
+  <h1>
+    <a href="#coding%20style" name="coding%20style" class="pilcrow">&#182;</a>
+    Coding style
+  </h1>
+</div>
+
+
+<p>Upward uses the following coding style. Whether or not you adopt this in your Upward application is completely up to you.</p>
+
+<ol>
+<li>Indentation
+<ul><li>Two spaces</li>
+<li>Spaces, not tabs</li></ul></li>
+<li>Variables and names
+<ul><li>camelCased</li>
+<li>Individual <code>var</code> declarations</li>
+<li><code>var</code> declarations after nested functions</li></ul></li>
+<li>Comments
+<ul><li>Liberal double-slash comments, at least one per routine</li>
+<li>Double-slash comments at beginning of every file</li>
+<li>Use of YUIDoc-style comments for important APIs whose parameters/return value need explicit documentation</li></ul></li>
+<li>Line breaking
+<ul><li>Short <code>if</code>, <code>else</code>, <code>for</code> and <code>while</code> statement bodies may follow on the same line, with no curly brackets</li>
+<li>Short function bodies may also follow on the same line</li></ul></li>
+<li>Vertical spacing
+<ul><li>Empty lines between routines, unless closely paired</li>
+<li>Wherever else makes sense for readability</li></ul></li>
+<li>Horizontal spacing
+<ul><li>No spaces after left parentheses or before right parentheses</li>
+<li>Spaces around operators</li>
+<li>Spaces after left brackets and before right brackets, both for single-line functions and object literals</li>
+<li>Spaces before and after dots accessing chained methods, such as <code>E('div') . has(....)</code>; when the <code>has</code> is to be placed on a separate line, the preceding period on the first line</li>
+<li>Spacing to align and show the relationship between consecutive lines, as in</li></ul></li>
+<li>Exports
+<ul><li>At bottom</li>
+<li>Preference for default exports</li></ul></li>
+</ol></div>
+  </div>
+</body>
+</html>

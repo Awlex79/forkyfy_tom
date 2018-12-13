@@ -1,0 +1,14 @@
+# .gitignore for upward
+
+# omit imported components
+node_modules
+bower_components
+
+npm-debug.log
+
+# omit build artifacts
+bundle.js
+bundle.min.js
+make.d
+watch.json
+watch.list
