@@ -14,8 +14,6 @@ import * as recipeView from './views/recipeView'
 import {elements, renderLoader, clearLoader}  from './views/base'
 
 
-
-
 /** Global State of the App
  * - Search object
  * - Current recipe object
@@ -50,10 +48,9 @@ const controlSearch = async () => {
 
         // 5) Render results on UI
         clearLoader();
-        //console.log(state.search.result);
         searchView.renderResults(state.search.result);
         } catch (err) { 
-            alert ('Error %( ')
+            alert ('Error %( . No search results.')
             clearLoader();
         };
     }
@@ -88,11 +85,12 @@ elements.searchResPages.addEventListener('click' , e => {
 const controlRecipe = async () => {
     // Get the id from url
     const id = window.location.hash.replace('#', '');
-    console.log(id);
+    
 
     if (id) { 
         // Prepare UI for changes
-        
+        recipeView.clearRecipe();
+        renderLoader(elements.recipe);
 
         // Create new recipe object
         state.recipe = new Recipe(id);
@@ -108,12 +106,13 @@ const controlRecipe = async () => {
             state.recipe.calcTime();
             state.recipe.calcServings();
             // Render the recipe
-            console.log(state.recipe);
-        } catch (err) {
-            alert('Error processing recipe!');
+            clearLoader();
+            recipeView.renderRecipe(state.recipe);
 
+        } catch (err) {
+            console.log(err);
+            alert('Error processing recipe!');
         };
-        
     }
 };
 //window.addEventListener('hashchange', controlRecipe);
