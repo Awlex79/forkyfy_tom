@@ -8,10 +8,11 @@ console.log(`Using imported functions! ${add(ID, 2)} and ${multiplay(3, 5)}. ${s
 // https://www.food2fork.com/api/search
 // food2fork api key 41251b989d597c7acb41047fe414e65e
 import Search from './models/Search';
-import Recipe from './models/Recipe'
-import * as searchView from './views/searchView' 
-import * as recipeView from './views/recipeView' 
-import {elements, renderLoader, clearLoader}  from './views/base'
+import Recipe from './models/Recipe';
+import List from './models/List';
+import * as searchView from './views/searchView'; 
+import * as recipeView from './views/recipeView'; 
+import {elements, renderLoader, clearLoader}  from './views/base';
 
 
 /** Global State of the App
@@ -122,14 +123,41 @@ const controlRecipe = async () => {
 //window.addEventListener('load', controlRecipe);
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe)); 
 
+
+// LIST CONTROLLER
+const controlList = () => {
+    // Create a New List if thrre is none yet
+
+    if(!state.list) state.list = new List;
+
+
+};
+
+
+
+
 // Handling recipe buttons clicks
 elements.recipe.addEventListener('click', e => {
     if (e.target.matches('.btn-decrease, .btn-decrease * ')) {
         // Decrease button is clicked
+        if (state.recipe.servings > 1) {
         state.recipe.updateServings('dec');
+        
+        recipeView.updateServingsIngredients(state.recipe);
+        };
+
+
+
     } else if (e.target.matches('.btn-increase, .btn-increase * ')) {
          // Increase button is clicked
         state.recipe.updateServings('inc');
-    }
-    console.log(state.recipe);
+
+        recipeView.updateServingsIngredients(state.recipe);
+    } else if (e.target.matches('.recipe__btn--add, .recipe__btn--add*')) {
+        controlList();
+    };
 })
+
+window.l = new List();
+
+
